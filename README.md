@@ -1,24 +1,25 @@
-# Agrinho 2026 - Programação Web com Inteligência Artificial e p5.js
+# EcoIrriga 2026 - Programação Web Avançada com p5.js
 
-## 🌾 Tema do Concurso
-**Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente**
+## 🌾 Integração Temática
+**Tema:** Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente
 
-### 💧 Recorte Temático Escolhido
-*Manejo racional da água: Aplicação de algoritmo gráfico para simulação comparativa entre métodos de Irrigação por Gotejamento e Aspersão tradicional.*
+O projeto **EcoIrriga** aborda de forma cirúrgica o equilíbrio produtivo. Ele demonstra como a migração tecnológica para a irrigação localizada por gotejamento mitiga o estresse hídrico dos mananciais, mantendo a rentabilidade financeira e a alta capacidade de oferta alimentar das safras regionais do estado.
 
 ---
 
-## 🎯 Objetivo Geral do Projeto
-Este projeto foi desenvolvido como aplicação prática e pedagógica concorrente ao Concurso Agrinho 2026. A ferramenta tem como intuito conscientizar agricultores locais, famílias do campo e o ecossistema escolar sobre o valor do gerenciamento inteligente da água. Utilizando a biblioteca **p5.js**, a aplicação renderiza um motor visual interativo que simula ciclos físicos de irrigação e calcula instantaneamente a economia hídrica obtida ao aliar tecnologia agrícola à conservação do meio ambiente.
+## 🚀 Funcionalidades Elaboradas Implementadas
+* **Física de Partículas Complexas:** O script gerencia um sistema independente de vetores dinâmicos, simulando os arcos parabólicos da dispersão por aspersão convencional e a precisão do gotejamento por gravidade.
+* **Banco de Dados de Culturas Reais:** Integra parâmetros técnicos reais de consumo diário para culturas de **Milho, Soja e Hortaliças**, adaptando o cálculo à matriz econômica rural.
+* **Infraestrutura de Data Analytics Integrada:** Renderização direta de um gráfico de barras comparativo em tempo real dentro do Canvas do p5.js, simplificando a leitura de dados volumétricos.
+* **Simulador Financeiro:** Converte a água economizada em estimativa de economia de capital, aproximando o aluno e o produtor rural da viabilidade de investimentos sustentáveis.
 
-## 🛠️ Tecnologias e Bibliotecas Aplicadas
-* **HTML5:** Marcação semântica e ancoragem dos elementos estruturais.
-* **CSS3:** Organização visual, estilização de tipografia e propriedades responsivas.
-* **p5.js (JavaScript):** Gerenciamento do canvas gráfico, renderização das partículas dinâmicas de água, estruturas de vetores e manipulação do loop de animação.
-* **Inteligência Artificial:** Empregada no planejamento lógico e arquitetura técnica das funções matemáticas do script.
+## 🛠️ Tecnologias Empregadas
+* **HTML5 Semântico:** Estruturação otimizada para portabilidade e acessibilidade.
+* **CSS3 Avançado:** Interface moderna baseada em variáveis nativas (`:root`), layouts responsivos com Grid e efeitos visuais suaves.
+* **Biblioteca p5.js:** Motor lógico focado na renderização cíclica estruturada das funções matemáticas `setup()` e `draw()`.
 
-## 👥 Dados de Identificação
+## 👥 Identificação do Aluno
 * **Estudante:** [Seu Nome Completo]
-* **Série:** [Sua Série do Ensino Médio]
-* **Escola:** [Nome Completo do Colégio Estadual]
-* **Município / Localidade:** [Sua Cidade - Paraná]
+* **Série:** [Sua Série, ex: 2º Ano do Ensino Médio]
+* **Escola:** [Nome Completo do seu Colégio Estadual]
+* **Município:** [Sua Cidade - Paraná]
