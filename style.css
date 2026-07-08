@@ -1,108 +1,311 @@
 /* ==========================================================================
-   LÓGICA INTERATIVA - PORTAL ECOAGRO (AGRINHO 2026)
+   STYLE GUIDE - HIDROAGRO SUSTENTÁVEL
    ========================================================================== */
-
-// 📑 Sistema de Controle de Abas (Alternar entre Calculadora e Quiz)
-function switchTab(tabName) {
-    // 1. Seleciona e remove a classe 'active' de todos os botões de aba
-    const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // 2. Seleciona e oculta todos os conteúdos das abas
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(content => content.classList.remove('active'));
-    
-    // 3. Aplica a classe ativa exatamente nos elementos corretos
-    if (tabName === 'calc') {
-        buttons[0].classList.add('active');
-        document.getElementById('tab-calc').classList.add('active');
-    } else if (tabName === 'quiz') {
-        buttons[1].classList.add('active');
-        document.getElementById('tab-quiz').classList.add('active');
-    }
+:root {
+    --hydro-blue: #0288d1;       /* Azul água/tecnologia hídrica */
+    --hydro-dark: #014666;       /* Azul escuro profundo */
+    --field-green: #2e7d32;      /* Verde plantação */
+    --leaf-light: #e8f5e9;       /* Fundo verde suave */
+    --text-main: #263238;        /* Cinza escuro para leitura confortável */
+    --white: #ffffff;
+    --card-border: #cfd8dc;
+    --radius: 12px;
+    --smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-// 🧮 Lógica da Calculadora de Impacto Ambiental Real
-function runCalculator() {
-    const hectaresInput = document.getElementById('hectares').value;
-    const resultDiv = document.getElementById('calc-result');
-    
-    // Validação de segurança: impede campos vazios, zeros ou números negativos
-    if (!hectaresInput || hectaresInput <= 0) {
-        resultDiv.style.display = "block";
-        resultDiv.className = "hidden-result"; 
-        resultDiv.style.backgroundColor = "#ffebee";
-        resultDiv.style.color = "#c62828";
-        resultDiv.style.borderLeft = "6px solid #b71c1c";
-        resultDiv.innerHTML = "<strong>⚠️ Erro no Campo:</strong> Por favor, digite uma quantidade de hectares válida e maior que zero para calcular.";
-        return;
-    }
-    
-    const hectares = parseFloat(hectaresInput);
-    
-    // Métricas ecológicas anuais estimadas por hectare com Agricultura de Precisão
-    const aguaEconomizada = hectares * 45000;  
-    const quimicosEvitados = hectares * 12.5;  
-    const dieselSalvo = hectares * 8.2;        
-
-    // Exibe a resposta formatada na tela dentro do padrão Agro-Sustentável
-    resultDiv.style.display = "block";
-    resultDiv.style.backgroundColor = ""; 
-    resultDiv.style.color = "";
-    resultDiv.className = "hidden-result result-box"; 
-    
-    resultDiv.innerHTML = `
-        <h3>📊 Diagnóstico Concluído para ${hectares.toLocaleString('pt-BR')} Hectares!</h3>
-        <p>Ao implementar tecnologias de precisão e monitoramento inteligente, esta propriedade rural alcançará a seguinte estimativa de preservação ecológica anual:</p>
-        <ul style="margin: 15px 0; padding-left: 25px; text-align: left;">
-            <li style="margin-bottom: 8px;">💧 <strong>${aguaEconomizada.toLocaleString('pt-BR')} Litros de Água</strong> economizados, protegendo mananciais locais.</li>
-            <li style="margin-bottom: 8px;">🌱 <strong>${quimicosEvitados.toFixed(1).replace('.', ',')} kg de Insumos Químicos</strong> otimizados, evitando a contaminação do solo.</li>
-            <li style="margin-bottom: 8px;">🚜 <strong>${dieselSalvo.toFixed(1).replace('.', ',')} Litros de Combustível</strong> poupados, reduzindo drasticamente as emissões de gases poluentes.</li>
-        </ul>
-        <p style="font-weight: 700; color: #1e4620;">Resultado: Equilíbrio perfeito atingido entre a força da produção e a integridade da natureza!</p>
-    `;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-// 🧠 Lógica do Quiz Técnico do Produtor Sustentável
-function runQuiz() {
-    const r1 = document.querySelector('input[name="r1"]:checked');
-    const r2 = document.querySelector('input[name="r2"]:checked');
-    const resultDiv = document.getElementById('quiz-result');
-    
-    // Validação para garantir que o usuário escolheu uma opção em cada pergunta
-    if (!r1 || !r2) {
-        resultDiv.style.display = "block";
-        resultDiv.className = "hidden-result";
-        resultDiv.style.backgroundColor = "#ffebee";
-        resultDiv.style.color = "#c62828";
-        resultDiv.style.borderLeft = "6px solid #b71c1c";
-        resultDiv.innerHTML = "<strong>⚠️ Quiz Incompleto:</strong> Por favor, selecione uma resposta para cada uma das perguntas antes de finalizar a avaliação.";
-        return;
-    }
-    
-    // Soma os pontos das respostas selecionadas (0 para tradicional, 10 para tecnológico)
-    const totalScore = parseInt(r1.value) + parseInt(r2.value);
-    
-    resultDiv.style.display = "block";
-    resultDiv.style.backgroundColor = "";
-    resultDiv.style.color = "";
-    resultDiv.className = "hidden-result result-box";
-    
-    // Gera o veredito técnico ecológico baseado na pontuação atingida
-    if (totalScore === 20) {
-        resultDiv.innerHTML = `
-            <h3>🏆 Pontuação: 20 / 20 - Propriedade Modelo 4.0!</h3>
-            <p>Excelente diagnóstico! A propriedade fictícia adota os pilares máximos da agricultura moderna de precisão. O mapeamento com drones e a aplicação em taxa variável garantem alta produtividade, eliminando desperdícios e gerando um futuro totalmente sustentável.</p>
-        `;
-    } else if (totalScore === 10) {
-        resultDiv.innerHTML = `
-            <h3>🌾 Pontuação: 10 / 20 - Em Transição Tecnológica</h3>
-            <p>Bom começo, mas há espaço para evoluir! A fazenda já compreende os benefícios da automação em uma das etapas avaliadas. Contudo, manter manejos tradicionais e sem dados na outra vertente ainda causa perdas financeiras e sobrecarga desnecessária aos recursos naturais.</p>
-        `;
-    } else {
-        resultDiv.innerHTML = `
-            <h3>🚨 Pontuação: 0 / 20 - Alerta de Impacto Ambiental Crítico</h3>
-            <p>Atenção total! Práticas puramente convencionais baseadas em aplicações maciças e sem critérios técnicos precisos agridem severamente os microrganismos do solo e comprometem os lençóis freáticos. É urgente modernizar o manejo com o uso de ferramentas de tecnologia verde.</p>
-        `;
-    }
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #f7f9fa;
+    color: var(--text-main);
+    line-height: 1.65;
+}
+
+.container {
+    width: 90%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* Hero Header */
+.hero-header {
+    background: linear-gradient(135deg, rgba(1, 70, 102, 0.9) 0%, rgba(46, 125, 50, 0.8) 100%), 
+                url('https://unsplash.com') center/cover no-repeat;
+    color: var(--white);
+    padding: 110px 0;
+    text-align: center;
+    border-bottom: 6px solid var(--hydro-blue);
+}
+
+.badge-agro {
+    background-color: var(--hydro-blue);
+    color: var(--white);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Navbar */
+.navigation-bar {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    color: var(--hydro-dark);
+    font-weight: 700;
+}
+
+.brand-logo strong {
+    color: var(--hydro-blue);
+}
+
+.menu-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: var(--smooth);
+}
+
+.menu-links a:hover {
+    color: var(--hydro-blue);
+}
+
+/* Layout de Conteúdo */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.agro-card {
+    background-color: var(--white);
+    padding: 35px;
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    border-top: 5px solid var(--hydro-blue);
+    transition: var(--smooth);
+}
+
+.agro-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.icon-sphere {
+    font-size: 2.2rem;
+    background-color: var(--leaf-light);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.agro-card h2 {
+    color: var(--hydro-dark);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Painel Interativo */
+.interactive-panel-water {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    margin: 50px 0;
+    overflow: hidden;
+}
+
+.panel-water-header {
+    background-color: var(--hydro-dark);
+    color: var(--white);
+    padding: 35px;
+    text-align: center;
+}
+
+.tabs-container {
+    display: flex;
+    background-color: #eceff1;
+}
+
+.tab-trigger {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: var(--smooth);
+}
+
+.tab-trigger.active {
+    background-color: var(--white);
+    color: var(--hydro-blue);
+    border-bottom: 3px solid var(--hydro-blue);
+}
+
+.water-tab-content {
+    display: none;
+    padding: 40px;
+}
+
+.water-tab-content.active {
+    display: block;
+}
+
+/* Formulários */
+.agro-input-group {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.agro-input-group input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid var(--card-border);
+    border-radius: 6px;
+    outline: none;
+    transition: var(--smooth);
+}
+
+.agro-input-group input:focus {
+    border-color: var(--hydro-blue);
+}
+
+.agro-input-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--hydro-dark);
+}
+
+.btn-agro-submit {
+    background-color: var(--hydro-blue);
+    color: var(--white);
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--smooth);
+    width: 100%;
+}
+
+.btn-agro-submit:hover {
+    background-color: var(--hydro-dark);
+}
+
+.agro-radio {
+    display: block;
+    background-color: #fafafa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.agro-radio input {
+    margin-right: 10px;
+}
+
+/* Caixas de Saída de Dados */
+.water-output-box {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 6px;
+    line-height: 1.6;
+}
+
+.success-water {
+    background-color: #e1f5fe;
+    border-left: 6px solid var(--hydro-blue);
+    color: var(--hydro-dark);
+}
+
+.error-water {
+    background-color: #ffebee;
+    border-left: 6px solid #d32f2f;
+    color: #c62828;
+}
+
+/* Referências e Rodapé */
+.agro-references {
+    background-color: var(--white);
+    padding: 35px;
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    margin-bottom: 50px;
+}
+
+.agro-references ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.agro-footer {
+    background-color: var(--hydro-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 35px 0;
+}
+
+/* Animação */
+.fade-up {
+    animation: fUp 0.6s ease forwards;
+}
+
+@keyframes fUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .hero-header h1 { font-size: 2rem; }
+    .flex-nav { flex-direction: column; gap: 10px; }
 }
