@@ -1,93 +1,83 @@
-// Controle do Sistema de Abas (Tabs) do Painel Interativo
-function switchTab(tabName) {
-    // Remove classe ativa de todas as abas e conteúdos
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-    
-    // Adiciona classe ativa na aba e conteúdo selecionado
-    if(tabName === 'calc') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-        document.getElementById('tab-calc').classList.add('active');
+// Alternar abas do painel hídrico de forma limpa e corrigida
+function toggleWaterTab(tabId) {
+    // Esconde todos os painéis e remove seleções de botões
+    document.getElementById('panel-calc').classList.remove('active');
+    document.getElementById('panel-check').classList.remove('active');
+    document.getElementById('btn-calc').classList.remove('active');
+    document.getElementById('btn-check').classList.remove('active');
+
+    // Ativa os elementos corretos baseados no ID passado
+    if (tabId === 'calc') {
+        document.getElementById('panel-calc').classList.add('active');
+        document.getElementById('btn-calc').classList.add('active');
     } else {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-        document.getElementById('tab-quiz').classList.add('active');
+        document.getElementById('panel-check').classList.add('active');
+        document.getElementById('btn-check').classList.add('active');
     }
 }
 
-// 🧮 Lógica da Calculadora de Impacto Ambiental Real
-function runCalculator() {
-    const hectaresInput = document.getElementById('hectares').value;
-    const resultDiv = document.getElementById('calc-result');
-    
-    // Validação de segurança do dado inserido
-    if (!hectaresInput || hectaresInput <= 0) {
-        resultDiv.style.display = "block";
-        resultDiv.className = "hidden-result";
-        resultDiv.style.backgroundColor = "#ffebee";
-        resultDiv.style.color = "#c62828";
-        resultDiv.innerHTML = "<strong>Erro:</strong> Por favor, insira um número válido de hectares maior do que zero.";
+// Lógica de cálculo da economia real de água por hectare irrigado de forma inteligente
+function calculateWaterSavings() {
+    const areaInput = document.getElementById('area-lavoura').value;
+    const output = document.getElementById('result-calc-water');
+
+    if (!areaInput || areaInput <= 0) {
+        output.style.display = "block";
+        output.className = "water-output-box error-water";
+        output.innerHTML = "<strong>⚠️ Erro:</strong> Digite uma quantidade válida de hectares.";
         return;
     }
-    
-    const hectares = parseFloat(hectaresInput);
-    
-    // Métricas reais aproximadas de economia com Agricultura de Precisão por Hectare/Ano
-    const aguaEconomizada = hectares * 45000; // litros de água salvos
-    const quimicosEvitados = hectares * 12.5; // kg de defensivos evitados
-    const dieselSalvo = hectares * 8.2; // litros de diesel poupados pela rota inteligente
 
-    // Montando a resposta de forma estruturada e elegante na tela
-    resultDiv.style.display = "block";
-    resultDiv.className = "hidden-result result-box";
-    resultDiv.innerHTML = `
-        <h3>Simulação Concluída para ${hectares} Hectares!</h3>
-        <p>Ao implementar sistemas tecnológicos inteligentes, sua propriedade rural gerará a seguinte economia ecológica anual:</p>
-        <ul style="margin-top: 10px; padding-left: 20px;">
-            <li>💧 <strong>${aguaEconomizada.toLocaleString('pt-BR')} Litros de Água</strong> preservados nos lençóis freáticos.</li>
-            <li>🌱 <strong>${quimicosEvitados.toFixed(1).replace('.', ',')} kg de Insumos Químicos</strong> que deixaram de sobrecarregar o solo.</li>
-            <li>🚜 <strong>${dieselSalvo.toFixed(1).replace('.', ',')} Litros de Combustível</strong> economizados, diminuindo a emissão de CO₂ na atmosfera.</li>
+    const area = parseFloat(areaInput);
+    
+    // Média de economia anual: 120.000 litros de água poupados por hectare usando sensores
+    const litrosSalvos = area * 120000; 
+    const energiaPoupada = area * 85; // economia em kWh de bombas de água ligadas menos tempo
+
+    output.style.display = "block";
+    output.className = "water-output-box success-water";
+    output.innerHTML = `
+        <h4>💧 Diagnóstico de Impacto Concluído!</h4>
+        <p>Ao modernizar a irrigação em <strong>${area.toLocaleString('pt-BR')} hectares</strong>, os resultados ecológicos estimados serão:</p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li>Volume de Água Preservado: <strong>${litrosSalvos.toLocaleString('pt-BR')} Litros/Ano</strong>.</li>
+            <li>Redução de Consumo Energético: <strong>${energiaPoupada.toLocaleString('pt-BR')} kWh</strong> devido à otimização das motobombas.</li>
         </ul>
-        <p style="margin-top: 10px; font-weight: bold; color: #1b5e20;">Resultado: Alta performance econômica em total equilíbrio com o meio ambiente!</p>
+        <p style="font-weight:600;">Sua plantação produz com eficiência máxima e protege os mananciais locais!</p>
     `;
 }
 
-// 🧠 Lógica do Quiz Tecnológico de Sustentabilidade
-function runQuiz() {
-    const r1 = document.querySelector('input[name="r1"]:checked');
-    const r2 = document.querySelector('input[name="r2"]:checked');
-    const resultDiv = document.getElementById('quiz-result');
-    
-    // Validação para checar se o aluno respondeu tudo
-    if (!r1 || !r2) {
-        resultDiv.style.display = "block";
-        resultDiv.className = "hidden-result";
-        resultDiv.style.backgroundColor = "#ffebee";
-        resultDiv.style.color = "#c62828";
-        resultDiv.innerHTML = "<strong>Atenção:</strong> Por favor, responda todas as questões do quiz antes de avaliar.";
+// Avaliação do gerenciamento de água da fazenda
+function evaluateWaterManagement() {
+    const q1 = document.querySelector('input[name="water-q1"]:checked');
+    const q2 = document.querySelector('input[name="water-q2"]:checked');
+    const output = document.getElementById('result-check-water');
+
+    if (!q1 || !q2) {
+        output.style.display = "block";
+        output.className = "water-output-box error-water";
+        output.innerHTML = "<strong>⚠️ Atenção:</strong> Responda todas as perguntas do checklist.";
         return;
     }
-    
-    // Processamento da pontuação acumulada
-    const totalScore = parseInt(r1.value) + parseInt(r2.value);
-    
-    resultDiv.style.display = "block";
-    resultDiv.className = "hidden-result result-box";
-    
-    // Renderizando o diagnóstico baseado na pontuação
-    if (totalScore === 20) {
-        resultDiv.innerHTML = `
-            <h3>Pontuação: 20 / 20 Pontos - Fazenda Modelo Sustentável!</h3>
-            <p>Excelente! A propriedade fictícia adota os pilares da <strong>Agricultura 4.0</strong>. O uso de taxa variável de fertilizantes e drones evita a degradação ambiental e maximiza a rentabilidade de forma limpa.</p>
+
+    const score = parseInt(q1.value) + parseInt(q2.value);
+    output.style.display = "block";
+    output.className = "water-output-box success-water";
+
+    if (score === 20) {
+        output.innerHTML = `
+            <h4>🏆 Nível de Manejo: Sustentabilidade Hidrológica Máxima!</h4>
+            <p>Excelente! A propriedade armazena água pluvial de forma inteligente e só aciona a irrigação baseando-se em leituras reais de sensores, anulando o estresse hídrico e o desperdício.</p>
         `;
-    } else if (totalScore === 10) {
-        resultDiv.innerHTML = `
-            <h3>Pontuação: 10 / 20 Pontos - Transição Tecnológica</h3>
-            <p>Bom trabalho, mas há espaço para evoluir! A propriedade já entendeu o valor da automação em uma das frentes, porém a falta de precisão na outra área ainda gera desperdício econômico e pegada ecológica negativa.</p>
+    } else if (score === 10) {
+        output.innerHTML = `
+            <h4>⚠️ Nível de Manejo: Risco Moderado de Escassez</h4>
+            <p>A propriedade já possui boas iniciativas em uma das frentes, mas a dependência de processos manuais ou sem leitura técnica de solo em outras etapas gera desperdício silencioso de recursos hídricos.</p>
         `;
     } else {
-        resultDiv.innerHTML = `
-            <h3>Pontuação: 0 / 20 Pontos - Alerta de Impacto Crítico</h3>
-            <p>Atenção! Práticas agrícolas baseadas puramente em calendários fixos e pulverizações maciças destroem os nutrientes do solo e causam contaminações severas. É urgente a implementação de ferramentas tecnológicas de precisão.</p>
+        output.innerHTML = `
+            <h4>🚨 Nível de Manejo: Crítico e Antieconômico</h4>
+            <p>Alerta total! Irrigar por rotinas fixas sem considerar a umidade real da terra gera saturação de solo, lixiviação de nutrientes e desperdício severo de água preciosa. É vital atualizar as tecnologias de manejo.</p>
         `;
     }
 }
