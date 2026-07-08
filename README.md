@@ -28,9 +28,7 @@ Acesse o projeto publicado no GitHub Pages:
 https://github.io
 
 ## Autor
-- **Nome do aluno:** [Seu Nome Completo]
-- **Escola:** [Nome da Sua Escola]
-- **Professor orientador:** [Nome do Seu Professor]
+- **Nome do aluno:** Wagner Natan
+- **Escola:** Dom Pedro II
+- **Professor orientador:** Luiz Alesandro
 
-## Observação
-Este projeto foi desenvolvido com fins educacionais para o Concurso Agrinho 2026.
