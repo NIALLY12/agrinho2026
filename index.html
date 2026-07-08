@@ -3,68 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Agricultura de Precisão</title>
+    <title>EcoAgro - Agricultura de Precisão Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Agrinho 2026</h1>
-            <p>Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente</p>
+    <!-- Cabeçalho Principal -->
+    <header class="main-header">
+        <div class="header-overlay">
+            <div class="container">
+                <span class="badge">Concurso Agrinho 2026</span>
+                <h1>Agro Forte, Futuro Sustentável</h1>
+                <p class="subtitle">O equilíbrio perfeito entre a máxima produtividade e a preservação ambiental através da tecnologia de precisão.</p>
+            </div>
         </div>
     </header>
 
+    <!-- Menu de Navegação Rápida -->
+    <nav class="nav-bar">
+        <div class="container nav-flex">
+            <div class="logo">Eco<strong>Agro</strong></div>
+            <div class="nav-links">
+                <a href="#conceito">O Conceito</a>
+                <a href="#desafios">Desafios</a>
+                <a href="#solucoes">Soluções</a>
+                <a href="#simulador">Simulador IA</a>
+            </div>
+        </div>
+    </nav>
+
     <main class="container">
-        <!-- Seção Introdução -->
-        <section class="card">
-            <h2>Tecnologia a Serviço da Natureza</h2>
-            <p>A agricultura de precisão utiliza ferramentas tecnológicas como drones, sensores de solo e GPS para gerenciar lavouras de forma detalhada. Em vez de tratar o campo inteiro da mesma maneira, o produtor consegue aplicar recursos exatamente onde e quando necessário.</p>
-        </section>
+        <!-- Grid de Conteúdo Teórico -->
+        <section class="grid-layout">
+            <article id="conceito" class="info-card fade-in">
+                <div class="card-icon">🚜</div>
+                <h2>A Revolução da Agricultura de Precisão</h2>
+                <p>A agricultura de precisão não trata o campo de forma genérica. Utilizando satélites, drones de mapeamento multiespectral e sensores IoT (Internet das Coisas) enterrados no solo, ela permite que o produtor rural compreenda as necessidades específicas de cada metro quadrado da sua plantação.</p>
+                <p><strong>Relação Sustentável:</strong> Ao aplicar insumos e água apenas onde há real necessidade, evitamos a contaminação do ecossistema e economizamos recursos vitais.</p>
+            </article>
 
-        <!-- Seção Problema -->
-        <section class="card">
-            <h2>O Desafio: Produzir Mais com Menos Impacto</h2>
-            <p>A demanda mundial por alimentos cresce diariamente. No entanto, o uso excessivo de fertilizantes, o desperdício de água e a degradação do solo ameaçam o futuro do planeta. O grande desafio atual é aumentar a produtividade sem esgotar as riquezas naturais.</p>
-        </section>
+            <article id="desafios" class="info-card fade-in">
+                <div class="card-icon">⚠️</div>
+                <h2>O Grande Desafio Global</h2>
+                <p>Até 2050, a produção global de alimentos precisará aumentar cerca de 60% para abastecer a população mundial. O grande problema é fazer isso sem avançar o desmatamento sobre biomas nativos e sem esgotar as reservas de água doce, das quais a agricultura tradicional consome cerca de 70%.</p>
+                <p>A degradação do solo por excesso de químicos pesados destrói microrganismos benéficos, tornando a terra infértil a longo prazo.</p>
+            </article>
 
-        <!-- Seção Solução -->
-        <section class="card">
-            <h2>A Solução: Inteligência no Campo</h2>
-            <p>Com sensores inteligentes, os agricultores medem a umidade exata do solo e a saúde das plantas. Isso evita o desperdício de água na irrigação e reduz drasticamente a aplicação de defensivos químicos, protegendo os lençóis freáticos e a biodiversidade local.</p>
-        </section>
-
-        <!-- Seção Simulador Interativo -->
-        <section class="card interactive-section">
-            <h2>Simulador de Diagnóstico Tecnológico</h2>
-            <p>Descubra como a tecnologia pode tornar uma propriedade rural mais sustentável. Responda às perguntas abaixo para avaliar a eficiência do campo:</p>
-            
-            <div id="quiz-container">
-                <div class="question">
-                    <p>1. Como é feita a irrigação atualmente?</p>
-                    <button onclick="checkAnswer(1, 'A')">A) Horário fixo, sem monitorar o solo.</button>
-                    <button onclick="checkAnswer(1, 'B')">B) Baseada em sensores de umidade.</button>
+            <article id="solucoes" class="info-card width-full fade-in">
+                <div class="card-icon">💡</div>
+                <h2>Tecnologias que Salvam o Futuro do Campo</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Drones e Imagens</h3>
+                        <p>Identificam pragas logo no início, focando a aplicação de defensivos apenas nas plantas afetadas (redução de até 80% do uso químico).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Sensores de Umidade</h3>
+                        <p>Conectados a sistemas de gotejamento automatizados, liberam a quantidade exata de água que a planta precisa, zerando o desperdício.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Telemetria e GPS</h3>
+                        <p>Tratores guiados por satélite evitam a compactação excessiva do solo e otimizam as rotas das máquinas, diminuindo a queima de óleo diesel.</p>
+                    </div>
                 </div>
-                <div class="question">
-                    <p>2. Como é feita a aplicação de fertilizantes?</p>
-                    <button onclick="checkAnswer(2, 'A')">A) De forma uniforme em todo o terreno.</button>
-                    <button onclick="checkAnswer(2, 'B')">B) Apenas nas áreas identificadas por drones.</button>
+            </article>
+        </section>
+
+        <!-- Módulo Interativo Avançado -->
+        <section id="simulador" class="interactive-panel fade-in">
+            <div class="panel-header">
+                <h2>📊 Central de Diagnóstico Inteligente</h2>
+                <p>Simule e calcule os impactos ambientais de uma fazenda real.</p>
+            </div>
+
+            <!-- Abas de Interação -->
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('calc')">🧮 Calculadora de Economia</button>
+                <button class="tab-btn" onclick="switchTab('quiz')">🧠 Quiz do Produtor Sustentável</button>
+            </div>
+
+            <!-- Conteúdo: Calculadora -->
+            <div id="tab-calc" class="tab-content active">
+                <h3>Simulador de Economia de Insumos</h3>
+                <p class="instruction">Insira o tamanho estimado da propriedade rural para ver o impacto da tecnologia de precisão:</p>
+                <div class="input-group">
+                    <input type="number" id="hectares" placeholder="Ex: 50" min="1">
+                    <label for="hectares">Hectares de Terra</label>
                 </div>
-                <div id="result"></div>
+                <button class="btn-action" onclick="runCalculator()">Calcular Impacto Ambiental</button>
+                <div id="calc-result" class="hidden-result"></div>
+            </div>
+
+            <!-- Conteúdo: Quiz -->
+            <div id="tab-quiz" class="tab-content">
+                <h3>Quiz Interativo: Nível de Sustentabilidade</h3>
+                <div id="quiz-flow">
+                    <div class="quiz-item" id="q1">
+                        <p class="question-text">1. Como sua fazenda fictícia lida com a adubação?</p>
+                        <label class="radio-option"><input type="radio" name="r1" value="0"> Aplicação uniforme em toda a área por calendário.</label>
+                        <label class="radio-option"><input type="radio" name="r1" value="10"> Análise de mapas de solo e aplicação com taxa variável.</label>
+                    </div>
+                    <div class="quiz-item" id="q2">
+                        <p class="question-text">2. Qual é a estratégia adotada no controle de pragas?</p>
+                        <label class="radio-option"><input type="radio" name="r2" value="0"> Pulverização total preventiva e sistemática de defensivos.</label>
+                        <label class="radio-option"><input type="radio" name="r2" value="10"> Monitoramento por drone e aplicação localizada cirúrgica.</label>
+                    </div>
+                    <button class="btn-action" onclick="runQuiz()">Finalizar Avaliação do Quiz</button>
+                </div>
+                <div id="quiz-result" class="hidden-result"></div>
             </div>
         </section>
 
-        <!-- Seção Referências -->
-        <section class="card references">
-            <h2>Referências</h2>
+        <!-- Seção Científica de Referências -->
+        <section class="references-section fade-in">
+            <h2>📚 Fontes e Referências Científicas</h2>
+            <p>Este trabalho baseou-se em dados coletados de órgãos oficiais de pesquisa agrícola:</p>
             <ul>
-                <li>EMBRAPA. <em>Agricultura de Precisão: Um novo olhar</em>. Disponível no portal oficial da Embrapa.</li>
-                <li>Ministério da Agricultura e Pecuária. <em>Diretrizes para o Desenvolvimento Sustentável no Campo</em>.</li>
+                <li><strong>EMBRAPA (Empresa Brasileira de Pesquisa Agropecuária):</strong> Cadernos de Agricultura de Precisão e Documentos sobre Sustentabilidade no Campo (2024-2026).</li>
+                <li><strong>FAO (Organização das Nações Unidas para a Alimentação e a Agricultura):</strong> Relatórios globais de recursos hídricos e uso sustentável de solos na agricultura moderna.</li>
+                <li><strong>MCTI:</strong> Diretrizes nacionais para incentivo à tecnologia verde e Internet das Coisas (IoT) no agronegócio nacional.</li>
             </ul>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 - Projeto Escolar desenvolvido para o Concurso Agrinho</p>
+    <!-- Rodapé -->
+    <footer class="main-footer">
+        <p><strong>Concurso Agrinho 2026</strong> | Categoria: Programação Web</p>
+        <p>Desenvolvido com foco no equilíbrio ecológico, inovação e sustentabilidade regional.</p>
     </footer>
 
     <script src="script.js"></script>
