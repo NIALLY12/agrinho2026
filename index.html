@@ -3,61 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoIrriga - Agrinho 2026 (p5.js Pro)</title>
+    <title>Agrinho 2026 - Agricultura de Precisão</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Biblioteca p5.js estável via CDN oficial -->
-    <script src="https://cloudflare.com"></script>
 </head>
 <body>
-
     <header>
         <div class="container">
-            <span class="badge">Agrinho 2026 • Programação Web Pro</span>
-            <h1>EcoIrriga: Simulador de Gestão Hídrica Avançada</h1>
-            <p>Tecnologia e IA aliadas ao equilíbrio entre alta produtividade e preservação ambiental</p>
+            <h1>Agrinho 2026</h1>
+            <p>Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente</p>
         </div>
     </header>
 
     <main class="container">
-        <!-- Painel de Configurações Técnicas -->
-        <section class="card painel-controle">
-            <h2>Configurações do Cultivo Regional</h2>
-            <p>Personalize os dados abaixo de acordo com a realidade da sua propriedade rural, horta escolar ou comunidade para calcular a eficiência hídrica real:</p>
-            
-            <div class="control-grid">
-                <div class="form-group">
-                    <label for="culturaSelect">Tipo de Cultura:</label>
-                    <select id="culturaSelect">
-                        <option value="horta" selected>Hortaliças (Horta Comunitária)</option>
-                        <option value="soja">Soja (Grãos de Grande Escala)</option>
-                        <option value="milho">Milho (Safrinha Regional)</option>
-                    </select>
-                </div>
+        <!-- Seção Introdução -->
+        <section class="card">
+            <h2>Tecnologia a Serviço da Natureza</h2>
+            <p>A agricultura de precisão utiliza ferramentas tecnológicas como drones, sensores de solo e GPS para gerenciar lavouras de forma detalhada. Em vez de tratar o campo inteiro da mesma maneira, o produtor consegue aplicar recursos exatamente onde e quando necessário.</p>
+        </section>
 
-                <div class="form-group">
-                    <label for="areaInput">Área de Cultivo (m²):</label>
-                    <input type="number" id="areaInput" value="250" min="10" max="10000">
+        <!-- Seção Problema -->
+        <section class="card">
+            <h2>O Desafio: Produzir Mais com Menos Impacto</h2>
+            <p>A demanda mundial por alimentos cresce diariamente. No entanto, o uso excessivo de fertilizantes, o desperdício de água e a degradação do solo ameaçam o futuro do planeta. O grande desafio atual é aumentar a produtividade sem esgotar as riquezas naturais.</p>
+        </section>
+
+        <!-- Seção Solução -->
+        <section class="card">
+            <h2>A Solução: Inteligência no Campo</h2>
+            <p>Com sensores inteligentes, os agricultores medem a umidade exata do solo e a saúde das plantas. Isso evita o desperdício de água na irrigação e reduz drasticamente a aplicação de defensivos químicos, protegendo os lençóis freáticos e a biodiversidade local.</p>
+        </section>
+
+        <!-- Seção Simulador Interativo -->
+        <section class="card interactive-section">
+            <h2>Simulador de Diagnóstico Tecnológico</h2>
+            <p>Descubra como a tecnologia pode tornar uma propriedade rural mais sustentável. Responda às perguntas abaixo para avaliar a eficiência do campo:</p>
+            
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Como é feita a irrigação atualmente?</p>
+                    <button onclick="checkAnswer(1, 'A')">A) Horário fixo, sem monitorar o solo.</button>
+                    <button onclick="checkAnswer(1, 'B')">B) Baseada em sensores de umidade.</button>
                 </div>
+                <div class="question">
+                    <p>2. Como é feita a aplicação de fertilizantes?</p>
+                    <button onclick="checkAnswer(2, 'A')">A) De forma uniforme em todo o terreno.</button>
+                    <button onclick="checkAnswer(2, 'B')">B) Apenas nas áreas identificadas por drones.</button>
+                </div>
+                <div id="result"></div>
             </div>
         </section>
 
-        <!-- Container do Canvas Interativo do p5.js -->
-        <section class="card canvas-card">
-            <h2>Monitoramento Gráfico e Física de Partículas em Tempo Real</h2>
-            <div id="canvas-holder">
-                <!-- O motor do p5.js vai renderizar o painel dinâmico aqui -->
-            </div>
+        <!-- Seção Referências -->
+        <section class="card references">
+            <h2>Referências</h2>
+            <ul>
+                <li>EMBRAPA. <em>Agricultura de Precisão: Um novo olhar</em>. Disponível no portal oficial da Embrapa.</li>
+                <li>Ministério da Agricultura e Pecuária. <em>Diretrizes para o Desenvolvimento Sustentável no Campo</em>.</li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>Projeto Desenvolvido por Alunos do Ensino Médio com Suporte de Inteligência Artificial</p>
-            <p>Colégio Estadual da Nossa Comunidade • Paraná • Concurso Agrinho 2026</p>
-        </div>
+        <p>&copy; 2026 - Projeto Escolar desenvolvido para o Concurso Agrinho</p>
     </footer>
 
-    <!-- Arquivo principal contendo o motor p5.js avançado -->
     <script src="script.js"></script>
 </body>
 </html>
